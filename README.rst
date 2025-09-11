@@ -34,7 +34,7 @@ Pour installer le projet en mode développeur :
 .. code-block:: bash
 
 
-   pip install . -e[dev]
+   pip install -e .[dev]
 
 
 Cas d'usage
@@ -89,7 +89,7 @@ Pour générer la documentation, utilisez Sphinx :
 .. code-block:: bash
 
 
-   pip install . -e[doc]
+   pip install -e .[doc]
 
 
 .. code-block:: bash
@@ -107,7 +107,7 @@ Pour lancer les tests :
 .. code-block:: bash
 
 
-   pip install . -e[test]
+   pip install -e .[test]
 
 
 .. code-block:: bash
