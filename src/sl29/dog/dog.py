@@ -18,6 +18,8 @@ class Dog:
         name (str): Le nom du chien (public).
     """
 
+    
+
     def __init__(self, race: str, sex: str, name: str = "") -> None:
         """
         Initialise un chien avec une race, un sexe et un nom.
