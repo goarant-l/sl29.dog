@@ -30,6 +30,10 @@ class Dog:
         self._race = race  # Attribut protégé pour la race
         self._sex = sex    # Attribut protégé pour le sexe
         self.name = name   # Attribut public pour le nom
+        self._mother = None
+        self._father = None
+        self._puppies = []
+
 
     @property
     def race(self) -> str:
@@ -56,6 +60,65 @@ class Dog:
     
     def chew(self, os):
         print(os[:-1])
+    
+    @property
+    def mother(self) -> Optional['Dog']:
+        """
+        Retourne la mère du chien ou None.
+
+        Returns:
+            Optional[Dog]: La mère du chien ou None.
+        """
+        
+
+    def mate(self, other: 'Dog') -> 'Dog':
+        """
+        Fait s'accoupler deux chiens et retourne un chiot.
+
+        Args:
+            other (Dog): L'autre chien avec lequel s'accoupler.
+
+        Returns:
+            Dog: Le chiot issu de l'accouplement.
+
+        Raises:
+            MatingError: Si les deux chiens sont de même sexe.
+        """
+
+        if self._sex == other._sex:
+            raise MatingError("Pas possible, les chiens sont du même sexe")
+        else:
+            if self._sex == "M":
+                pere = self
+                mere = other
+            else: 
+                pere = other 
+                mere = self
+            if self._race == other._race:
+                race = self._race
+            else:
+                race = "Bâtard"
+            sexe = random.choice(["M", "F"])
+            chiot = Dog(race,sexe)
+            chiot._mother = mere
+            chiot._father = pere
+            pere._puppies.append(chiot)
+            mere._puppies.append(chiot)
+            return chiot
+        
+
+            
+
+
+
+            # Vérification des sexes
+            # Détermination du père et de la mère
+            # Détermination de la race du chiot
+            # Détermination du sexe du chiot (aléatoire)
+            # Création du chiot
+            # Assignation des parents
+            # Ajout du chiot à la liste des chiots des parents
+
 
     def __str__(self) -> str:
         """
