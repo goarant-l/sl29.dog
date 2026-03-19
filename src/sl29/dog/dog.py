@@ -54,7 +54,8 @@ class Dog:
     def bark(self, n=1):
         return "Woff"*n
     
-
+    def chew(self, os):
+        print(os[:-1])
 
     def __str__(self) -> str:
         """
